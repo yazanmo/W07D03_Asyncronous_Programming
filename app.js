@@ -6,6 +6,7 @@ const port = 3000;
 
 const fs = require("fs");
 const axios = require("axios");
+const { response } = require("express");
 
 const readFile = () => {
     let content 
@@ -16,7 +17,7 @@ const readFile = () => {
     });
   };
 
-readFile()
+//readFile()
 
 
 const writeFile = () => {
@@ -26,10 +27,20 @@ const writeFile = () => {
       });
   };
 
-  writeFile()
+  //writeFile()
 
+  const getPost = (id) => {axios
+   
+    .get(`https://jsonplaceholder.typicode.com/posts/${id}/`)
+    .then((response)=>{
 
+        console.log(response.data)
+        return response.data
+    })
 
+  };
+  //getPost(1);
+  //getPost(50);
 
 
 app.listen(port, () => {
