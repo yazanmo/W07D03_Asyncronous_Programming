@@ -42,6 +42,17 @@ const writeFile = () => {
   //getPost(1);
   //getPost(50);
 
+  const getPostAsync = async (data) => {
+    
+    try{
+        const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${data}/`)
+        console.log(response.data)
+        return response.data
+    }
+    catch (err){
+        throw err
+    }
+  };
 
 app.listen(port, () => {
    
